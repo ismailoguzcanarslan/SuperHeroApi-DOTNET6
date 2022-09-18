@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SuperHeroApi.Models;
 
 namespace SuperHeroApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class SuperHeroController : ControllerBase
@@ -15,14 +17,14 @@ namespace SuperHeroApi.Controllers
         {
             _dataContext = dataContext;
         }
-
-        [HttpGet("get")]
+        
+        [HttpGet]
         public async Task<ActionResult<List<SuperHero>>> Get()
         {
             return Ok(await _dataContext.SuperHeroes.ToListAsync());
         }
-        
-        [HttpPost("create")]
+
+        [HttpPost]
         public async Task<ActionResult<List<SuperHero>>> Create(SuperHero hero)
         {
             _dataContext.SuperHeroes.Add(hero);
@@ -30,8 +32,8 @@ namespace SuperHeroApi.Controllers
             return Ok(await _dataContext.SuperHeroes.ToListAsync());
         }
 
-        [HttpGet("getbyid/{id}")]
-        public async Task<ActionResult<SuperHero>> GetById(Guid id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<SuperHero>> GetById(int id)
         {
             var hero = await _dataContext.SuperHeroes.FindAsync(id);
 
@@ -41,7 +43,7 @@ namespace SuperHeroApi.Controllers
 
         }
 
-        [HttpPut("update")]
+        [HttpPut]
         public async Task<ActionResult<List<SuperHero>>> Update(SuperHero superHero)
         {
             var hero = await _dataContext.SuperHeroes.FindAsync(superHero.Id);
@@ -61,7 +63,7 @@ namespace SuperHeroApi.Controllers
 
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult<List<SuperHero>>> Delete(Guid id)
         {
             var hero = await _dataContext.SuperHeroes.FindAsync(id);
