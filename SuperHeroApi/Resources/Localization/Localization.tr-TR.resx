@@ -120,4 +120,16 @@
   <data name="message" xml:space="preserve">
     <value>Bunca yıl, bütün bu anılar. Bir sen vardın. Sen, sen zamanın içine çektin beni.</value>
   </data>
+  <data name="register" xml:space="preserve">
+    <value>Hoşgeldiniz !</value>
+  </data>
+  <data name="userexist" xml:space="preserve">
+    <value>Bu eposta adresi ile bir kullanıcımız var.</value>
+  </data>
+  <data name="usernotexist" xml:space="preserve">
+    <value>Bu eposta ile kayıtlı bir kullanıcımız bulunmamakta.</value>
+  </data>
+  <data name="wrongpassword" xml:space="preserve">
+    <value>Yanlış Şifre !</value>
+  </data>
 </root>

@@ -120,4 +120,16 @@
   <data name="message" xml:space="preserve">
     <value>All these years, all these memories. There's been you. You, you pulled me through time.</value>
   </data>
+  <data name="register" xml:space="preserve">
+    <value>Welcome !</value>
+  </data>
+  <data name="userexist" xml:space="preserve">
+    <value>We've a user on this account</value>
+  </data>
+  <data name="usernotexist" xml:space="preserve">
+    <value>We do not have a registered user with this email.</value>
+  </data>
+  <data name="wrongpassword" xml:space="preserve">
+    <value>Wrong Password !</value>
+  </data>
 </root>
